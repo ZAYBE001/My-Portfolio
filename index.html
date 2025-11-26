@@ -1,31 +1,178 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>My Portfolio</title>
-        <meta name="My Portfolio" content="Portfolio">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./style.css">
-        
-    </head>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft Portfolio | Full-Stack Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#6366f1',
+                        },
+                        secondary: {
+                            500: '#10b981',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased">
+<custom-navbar></custom-navbar>
+    
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Hero Section -->
+        <section class="flex flex-col md:flex-row items-center justify-between gap-12 mb-24">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hey, I'm <span class="text-primary-500">Zaybe</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-500">Full-Stack Developer</h2>
+                <p class="text-lg mb-8 text-gray-600 leading-relaxed">
+                    I craft digital experiences that are fast, accessible, and visually appealing With a passion for  functionality
+                  in web development, I turn ideas into reality.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#projects" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="border-2 border-primary-500 text-primary-500 hover:bg-primary-50 px-6 py-3 rounded-lg font-medium transition-colors">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-500 shadow-xl">
+                    <img src="http://static.photos/technology/640x360/42" alt="Developer portrait" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
 
-    <body style="background-image: url(https://lh3.googleusercontent.com/gg/AN12HXTH5UGOU61xYmM-5Y0IJz0URpmfqnGYYHYz6RINVevGQS2seHbVTc71DKS4rv0XSWk7Q5N0DbpYD4eKSEKnXGUsHTj_XBBHqo6mq7y3xSxm-mLMirktayYqVsUBUCh4SHr4-jy02yDGT2OIo8Z4_tpmDUw6IYupIxQiDwTRoHkTXfRZOl8cGwBfhxxFBLdzFC-Cwbd5Qo_UvXUJoRrXMbAuAvu9mRH97xxOLmqEldGZ9dhHilrrVIE2Jj7gXhtqdbT1Nuto0hEEiVr5GgOXeVG5ALB9mizEWm7YmqaPkQDp9fh_qRjZ9EXQVh3pF_CmELmhk44CmHQDicxCY2eWfHC7); background-size: cover; background-repeat: no-repeat;"></body>
-        <nav>
-            <ul>
-                <li><img src="https://lh3.googleusercontent.com/gg/AN12HXTWPVpNljCY1rI8SqMZe8gzURAwoGjzkM7WZRD9JdbYsbnvmxlgyqTqDHQDarZl93ecYMZ0NLT64kAR-VxxYhtJKrY-GjTlFa3uaFzWdKiiAtB8mmd-xoC9mgmcn8KBh2DwIWmLL5rvz2u0oxuB1gqruXvOORG-2F6lc8mAzQkq6yn2CVOV2LWQ5DRmpDBGhxz4LNYGgXx1RAAkiw3dFk06a-55qoT_U8ZImLUxW-Eh9i0qmqAXrCmFBk5X_jmxsE29vzW-7geHyXvNGfLDXbZSNORGur4B1TOnpJfBxKyXpXN7P-CGMpyFqNcMkd4PbY6n6Bxub9RQznTMiVoY8-8" alt="logo"></li>
-                <li><a href="">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            
-        </nav>
-        
-            <h1>MY PORTFOLIO</h1>
-            <h2>Welcome to my Portfolio</h2>
-            <p>My Portfolio is a collection of my work and achievements. It showcases my skills and abilities.</p>
-        
-        
-        <script src="" async defer></script>
-    </body>
+        <!-- Skills Section -->
+        <section class="mb-24" id="skills">
+            <h2 class="text-3xl font-bold mb-12 text-center">My <span class="text-primary-500">Skills</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="skill-card">
+                    <i data-feather="code" class="text-primary-500"></i>
+                    <h3>Frontend</h3>
+                    <p>React,  Tailwind, JavaScript</p>
+                </div>
+                <div class="skill-card">
+                    <i data-feather="server" class="text-primary-500"></i>
+                    <h3>Backend</h3>
+                    <p>Node.js, Flask, Django </p>
+                </div>
+                <div class="skill-card">
+                    <i data-feather="database" class="text-primary-500"></i>
+                    <h3>Database</h3>
+                    <p>MongoDB, PostgreSQL, MySQL</p>
+                </div>
+                <div class="skill-card">
+                    <i data-feather="cloud" class="text-primary-500"></i>
+                    <h3>DevOps</h3>
+                    <p>AWS, Docker, CI/CD</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="mb-24" id="projects">
+            <h2 class="text-3xl font-bold mb-12 text-center">Featured <span class="text-primary-500">Projects</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="http://static.photos/technology/640x360/101" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-featured online store with payment integration</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            
+
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="http://static.photos/technology/640x360/102" alt="Task Management App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Management App</h3>
+                        <p>Productivity app with real-time collaboration</p>
+                        <div class="project-tags">
+                            <span>Vue.js</span>
+                            <span>Firebase</span>
+                            <span>Tailwind</span>
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="http://static.photos/technology/640x360/103" alt="Health Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3>Health Dashboard</h3>
+                        <p>Data visualization for health metrics</p>
+                        <div class="project-tags">
+                            <span>D3.js</span>
+                            <span>Python</span>
+                            <span>Flask</span>
+                        </div>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="mb-24" id="contact">
+            <h2 class="text-3xl font-bold mb-12 text-center">Get In <span class="text-primary-500">Touch</span></h2>
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 px-6 rounded-lg font-medium transition-colors">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+<!--<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script> -->
+</body>
 </html>
