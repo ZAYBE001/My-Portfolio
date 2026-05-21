@@ -119,3 +119,73 @@ form.addEventListener('submit', function(e) {
             }, 3000);
         });
 });
+function init3DTilt() {
+    const cards = document.querySelectorAll(".project-card");
+    cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            card.style.transform = `rotateX(${-y / 15}deg) rotateY(${x / 15}deg)`;
+        });
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0deg) rotateY(0deg)";
+        });
+    });
+}
+async function fetchPinnedProjects() {
+    console.log("Fetching projects..."); // This should show up in your Inspect -> Console
+    // ... rest of the code
+}
+async function fetchPinnedProjects() {
+    const username = 'ZAYBE001'; 
+    const container = document.querySelector('#projects .grid');
+    
+    try {
+        // We fetch repos sorted by 'stars' to get your most "pinned-worthy" work
+       // Change this line in your fetchPinnedProjects function:
+        const response = await fetch(`https://api.github.com/users/${username}/starred?per_page=6`);
+        const repos = await response.json();
+
+        container.innerHTML = '';
+
+        repos.forEach(repo => {
+            const card = `
+                <div class="project-card group" style="perspective: 1000px;">
+                    <div class="project-image overflow-hidden">
+                        <img src="https://opengraph.githubassets.com/1/${username}/${repo.name}" 
+                             alt="${repo.name}" 
+                             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="project-content p-6 bg-slate-800">
+                        <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wider">
+                            ${repo.name.replace(/-/g, ' ')}
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4 h-10 overflow-hidden">
+                            ${repo.description || "A high-quality software project built with precision."}
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-mono text-secondary-500 bg-secondary-500/10 px-2 py-1 rounded">
+                                ${repo.language || 'Full-Stack'}
+                            </span>
+                            <a href="${repo.html_url}" target="_blank" class="project-link text-primary-500 font-bold hover:text-primary-400 transition-colors">
+                                View Code →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += card;
+        });
+
+        // CRITICAL: Re-initialize your 3D Tilt effect after the cards are created!
+        init3DTilt(); 
+
+    } catch (error) {
+        console.error("GitHub Fetch Error:", error);
+    }
+}
+// Add this at the very bottom of your script.js
+fetchPinnedProjects();
+init3DTilt(); // Initialize tilt for any static cards (if you have any)
+
