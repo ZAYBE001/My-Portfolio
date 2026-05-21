@@ -76,3 +76,46 @@ document.addEventListener("DOMContentLoaded", () => {
         skillsObserver.observe(skillsSection);
     }
 });
+const form = document.getElementById('contact-form');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    // Visual feedback for the user
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.innerHTML = "Sending...";
+    submitBtn.disabled = true;
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                submitBtn.innerHTML = "Message Sent! 🎉";
+                form.reset();
+            } else {
+                console.log(response);
+                submitBtn.innerHTML = "Something went wrong";
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            submitBtn.innerHTML = "Error occurred";
+        })
+        .then(function() {
+            // Reset button text after 3 seconds
+            setTimeout(() => {
+                submitBtn.innerHTML = "Send Message";
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+});
